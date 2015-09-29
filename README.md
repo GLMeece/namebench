@@ -213,16 +213,17 @@ See http://code.google.com/p/namebench/wiki/FAQ for more recent updates.
 
 2. What does 'www.google.com. may be hijacked' mean?
   * This means that when a user requests 'www.google.com', they are being silently redirected to another server. The page may look like it's run by Google, but it is instead being proxied through another server. For details, try using the host command. In this case, this particular IP server is redirecting all traffic to http://google.navigation.opendns.com/
-
+   ```
     % host www.google.com. 208.67.220.220
     Using domain server:
     Name: 208.67.220.220
     Address: 208.67.220.220#53
     Aliases:
-
+  
     www.google.com is an alias for google.navigation.opendns.com.
     google.navigation.opendns.com has address 208.67.217.230
     google.navigation.opendns.com has address 208.67.217.231
+    ```
 
 3. What does 'google.com. may be hijacked' mean?
   * The same as above, but it is a rarer condition as it breaks http://google.com/
@@ -230,5 +231,5 @@ See http://code.google.com/p/namebench/wiki/FAQ for more recent updates.
 4. What does 'thread.error: can't start new thread' mean?
   * It means you are using too many threads. Try restarting `namebench.py` with `-j8`
 
-5. What does 'unhealthy: TestWwwGoogleComResponse <class 'dns.exception.Timeout'>' mean?
+5. What does 'unhealthy: TestWwwGoogleComResponse \<class 'dns.exception.Timeout'\>' mean?
   * It means the specified nameserver was too slow to answer you. If all of your nameservers are timing out, try restarting `namebench.py` with `-Y 4`
